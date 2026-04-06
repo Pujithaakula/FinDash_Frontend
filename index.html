@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FinDash - Personal Finance Dashboard</title>
+    <script>
+      // Prevent flash of light mode - check localStorage and set dark class immediately
+      (function() {
+        try {
+          const darkMode = localStorage.getItem('finance_dark_mode');
+          // Default to dark mode if not set, or if explicitly set to true
+          if (darkMode === null || darkMode === 'true') {
+            document.documentElement.classList.add('dark');
+          }
+        } catch (e) {
+          // If localStorage fails, default to dark mode
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
